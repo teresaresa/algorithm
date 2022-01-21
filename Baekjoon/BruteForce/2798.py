@@ -1,5 +1,12 @@
 from sys import stdin
+from itertools import combinations
 
+maximum = list(map(int, stdin.readline().split()))[-1]
+cards = list(map(int, stdin.readline().split()))
+result = 0
 
-# https://www.acmicpc.net/problem/2798
-# 주어진 수에서 차례로 깎아들어가야 함
+for card in combinations(cards, 3):
+    if result < sum(card) <= maximum:
+        result = sum(card)
+
+print(result)
